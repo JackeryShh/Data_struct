@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class Ccomplex{
+public:
+	float _real,_virtual;
+	Ccomplex(float a,float b):_real(a),_virtual(b){cout << _real<<"+"<< _virtual<<"i"<<endl;};
+	float magnitude2(){return _real*_real+_virtual*_virtual;};
+	Ccomplex operator*(const Ccomplex& para){
+		return Ccomplex(_real*para._real-_virtual*para._virtual,_real*_virtual+_virtual*para._real);
+	};
+	Ccomplex operator+(const Ccomplex &para){
+		return Ccomplex(_real+para._real,_virtual+para._virtual);
+	}
+};
+
+int main()
+{  
+	Ccomplex aa(4,7);
+	Ccomplex bb(1,3);
+	cout << bb.magnitude2()<< endl;
+	aa+bb;
+}
