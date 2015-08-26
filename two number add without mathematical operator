@@ -1,0 +1,19 @@
+// ptrtest.cpp : Defines the entry point for the console application.
+//
+#include "stdafx.h"
+#include<iostream>
+using namespace std;
+
+int add(int a,int b){
+	char * c;
+	c = reinterpret_cast<char*>(a);
+    //cout << "c=" << (int)c << endl;
+	char * d=&c[b];
+	int sum=reinterpret_cast<int>(d);
+	return sum;
+}
+int _tmain(int argc, _TCHAR* argv[])
+{
+	cout <<"sum =" <<add(4,5) << endl;
+	return 0;
+}
